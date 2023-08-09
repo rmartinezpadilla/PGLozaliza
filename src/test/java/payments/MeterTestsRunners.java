@@ -18,7 +18,6 @@ public class MeterTestsRunners {
     void testParallel() {
         Results results = Runner.path("classpath:payments").outputCucumberJson(true).tags("~@ignore").parallel(4);
         generateReport(results.getReportDir());
-        //Subiendo a otra rama
     }
 
     public static void generateReport(String karateOutputPath) {
