@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'org.tevolvers'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'com.intuit.karate:karate-junit5:1.2.0.RC4'
+    testImplementation 'net.masterthought:cucumber-reporting:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+//evitar el error de la ruta de los features
+sourceSets{
+    test{
+        resources{
+            srcDir file('src/test/java')
+            exclude '**/*.java'
+        }
+    }
+}
